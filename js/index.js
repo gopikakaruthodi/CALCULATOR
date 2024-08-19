@@ -1,19 +1,45 @@
-const inputBox = document.getElementById('inputBox');
-const buttons = document.querySelectorAll('button');
+let input = document.getElementById("inputBox")
+console.log(input);
+let buttons=document.querySelectorAll("button")
+console.log(buttons);
+let arr = Array.from(buttons)
+console.log(arr);
+let str=""
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    const value = button.textContent;
+arr.map((button)=>{
+  button.addEventListener("click",(e)=>{
+    // console.log(e.target.innerHTML);
+    if(e.target.innerHTML=="AC"){
+      str=""
+      input.value=str
 
-    if (value === 'AC') {
-      inputBox.value = '';
-    } else if (value === 'DEL') {
-      inputBox.value = inputBox.value.slice(0, -1);
-    } else if (value === '=') {
-     inputBox.value = eval(inputBox.value);
-
-    } else {
-      inputBox.value += value;
     }
-  });
-});
+    else if(e.target.innerHTML=="DEL"){
+      str=str.substring(0,str.length-1)
+      input.value=str
+
+    }
+    else if(e.target.innerHTML=="="){
+      let mul= str.search("x")
+      // console.log(mul);
+      let rep=str.replace("x","*")
+      str=eval(str)
+      input.value=str
+
+      
+      // if(e.target.innerHTML=="x"){
+        
+      // }
+      // else{
+      //   str=eval(str);
+      //   input.value=str;
+      // }
+
+    }
+    else{
+      str+=e.target.innerHTML
+      input.value=str
+    }
+
+  })
+})

@@ -20,20 +20,16 @@ arr.map((button)=>{
 
     }
     else if(e.target.innerHTML=="="){
-      let mul= str.search("x")
-      // console.log(mul);
-      let rep=str.replace("x","*")
-      str=eval(str)
-      input.value=str
+      if(str.search("x")){
+          let rep=str.replace("x","*")
+          str=eval(rep)
+          input.value=str
 
+      }
+
+        str=eval(str);
+        input.value=str;
       
-      // if(e.target.innerHTML=="x"){
-        
-      // }
-      // else{
-      //   str=eval(str);
-      //   input.value=str;
-      // }
 
     }
     else{
